@@ -5,7 +5,6 @@ COPY app /home/node/
 WORKDIR /home/node/app
 
 RUN apt-get update 
-RUN apt-get upgrade
 RUN apt-get install npm
 RUN npm install
 
