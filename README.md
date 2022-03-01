@@ -25,3 +25,8 @@
 - to check running containers `docker ps`. (add `-a` for all containers.)
 - Add `-p {host_port}:{container_port}` in the `docker run` command to map ports.
 - `docker rm {container_name}` (optional `-f` to force the deletion, for example a container is running)
+- To copy from local host to a docker container `docker cp {file} {container_id}:{dest}`
+
+### Pushing a container image to DockerHub
+- `docker commit {container_id} {user}/{repo}:{tag}`
+- `docker push {user}/{repo}:{tag}`
