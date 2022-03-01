@@ -27,6 +27,7 @@
 - `docker rm {container_name}` (optional `-f` to force the deletion, for example a container is running)
 - To copy from local host to a docker container `docker cp {file} {container_id}:{dest}`
 
-### Pushing a container image to DockerHub
+### Committing and pushing a container image to DockerHub
 - `docker commit {container_id} {user}/{repo}:{tag}`
 - `docker push {user}/{repo}:{tag}`
+This would create the repo in DockerHub, and push the image in with tag latest, unless specified otherwise.
