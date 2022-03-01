@@ -31,3 +31,11 @@
 - `docker commit {container_id} {user}/{repo}:{tag}`
 - `docker push {user}/{repo}:{tag}`
 This would create the repo in DockerHub, and push the image in with tag latest, unless specified otherwise.
+
+### Dockerfile
+- Define base image with `FROM {image}`.
+- Set ports needed for your application with `EXPOSE {port}`.
+- Use `COPY` to copy files and folders from localhost to container image.
+- Use `WORKDIR` to specify the working directory.
+- Use `RUN` for commands such as `npm install` or `apt update`
+- Use `CMD` for start up commands.
