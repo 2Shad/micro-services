@@ -8,7 +8,7 @@ COPY app/package*.json ./
 # RUN apt-get install -y npm
 RUN npm install
 
-COPY app/ app/
+COPY app/ .
 
 FROM node:alpine
 
