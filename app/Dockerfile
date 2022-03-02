@@ -2,13 +2,13 @@ FROM node:alpine as APP
 
 WORKDIR /urs/src/app
 
-COPY app/package*.json ./
 
+COPY app/ .
 # RUN apt-get update 
 # RUN apt-get install -y npm
 RUN npm install
 
-COPY app/ .
+
 
 FROM node:alpine
 
