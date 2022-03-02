@@ -1,4 +1,4 @@
-FROM node:6 as APP
+FROM node:8 as APP
 
 WORKDIR /urs/src/app
 
