@@ -39,3 +39,15 @@ This would create the repo in DockerHub, and push the image in with tag latest, 
 - Use `WORKDIR` to specify the working directory.
 - Use `RUN` for commands such as `npm install` or `apt update`
 - Use `CMD` for start up commands.
+
+### Multi-stage build
+- current image is in working state
+- listening port 3000
+- copy app folder
+- npm install
+- CMD ["npm", "start"]
+- `localhost:3000` displays node-app
+- add production ready layer
+- find the slimmer/smaller image to use
+- --from=app path of WORKDIR PATH:new image WORKDIR
+- size `1.04GB`
