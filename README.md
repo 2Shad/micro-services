@@ -22,10 +22,12 @@
 - User `docker run {image}` to create container as well as start it, it would also pull the image if its not available.
 - Check docker images available on host `docker images`.
 - To delete a docker image `docker rmi {image}`. (optional `-f` to force the deletion, for example a container is using the image)
-- to check running containers `docker ps`. (add `-a` for all containers.)
+- to check running containers `docker ps`. (add `-a` for all containers)
 - Add `-p {host_port}:{container_port}` in the `docker run` command to map ports.
-- `docker rm {container_name}` (optional `-f` to force the deletion, for example a container is running)
-- To copy from local host to a docker container `docker cp {file} {container_id}:{dest}`
+- `docker rm {container_name}`. (optional `-f` to force the deletion, for example a container is running)
+- To copy from local host to a docker container `docker cp {file} {container_id}:{dest}`.
+- `docker cp` can also be used in reverse to copy files from container to local host `docker copy {container_id}:{source} {dest}`.
+
 
 ### Committing and pushing a container image to DockerHub
 - `docker commit {container_id} {user}/{repo}:{tag}`
