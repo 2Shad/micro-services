@@ -13,6 +13,8 @@ FROM node:alpine
 
 COPY --from=APP /home/node/app /home/node/app
 
+WORKDIR /home/node/app
+
 EXPOSE 3000
 
 CMD ["npm", "start"]
