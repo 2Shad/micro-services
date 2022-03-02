@@ -50,4 +50,5 @@ This would create the repo in DockerHub, and push the image in with tag latest, 
 - add production ready layer
 - find the slimmer/smaller image to use
 - --from=app path of WORKDIR PATH:new image WORKDIR
-- size `1.04GB`
+- use alpine or slim base image to reduce container size from `1.04GB` to around `200MB`
+- create a APP container image with npm install, and create another one where it pulls the app folder and exposes port, as well as the CMD line as our final compressed container.
