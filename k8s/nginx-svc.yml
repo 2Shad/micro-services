@@ -10,7 +10,3 @@ spec:
       port: 80
       targetPort: 80
   type: NodePort
-status:
-  loadBalancer:
-    ingress:
-    - ip: 127.0.0.1

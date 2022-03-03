@@ -27,3 +27,16 @@ spec:
           ports:
             - containerPort: 80
           imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: node
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
