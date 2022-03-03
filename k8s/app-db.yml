@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+
+kind: Deployment  # {pod,service,replicaset,ASG}
+
+
+metadata:
+  name: node
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: node
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: node
+    spec:
+      containers:
+        - name: node
+          image: 2shad/shadman_app:v8
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-sev
+spec:
+  ports:
+  - nodePort: 30016
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: node
+  type: NodePort
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: db
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+        - name: db
+          image: mongo
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+spec:
+  ports:
+  - nodePort: 30017
+    port: 27017
+    protocol: TCP
+    targetPort: 27017
+  selector:
+    app: node
+  type: NodePort
