@@ -6,7 +6,7 @@
 
 apiVersion: apps/v1
 
-kind: Deplyoment  # {pod,service,replicaset,ASG}
+kind: Deployment  # {pod,service,replicaset,ASG}
 
 
 metadata:
