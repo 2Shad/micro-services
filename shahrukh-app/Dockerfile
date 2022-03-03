@@ -1,4 +1,4 @@
-FROM node:alpine as APP
+FROM node:8 as APP
 
 WORKDIR /urs/src/app
 
@@ -16,4 +16,6 @@ WORKDIR /urs/src/app
 
 EXPOSE 3000
 
-CMD ["node", "app.js"]
+ENV DB_HOST=mongodb://mongo:27017/posts
+
+CMD node seeds/seed.js && npm start
