@@ -10,7 +10,7 @@ kind: Deployment  # {pod,service,replicaset,ASG}
 
 
 metadata:
-  name: node
+  name: nginx
 spec:
   selector:
     matchLabels:
@@ -32,10 +32,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: node
+  name: sev
 spec:
   selector:
-    app: node
+    app: nginx
   ports:
     - protocol: TCP
       port: 80
@@ -44,4 +44,4 @@ spec:
 status:
   loadBalancer:
     ingress:
-    - ip: 192.168.1.210
+    - hostname: localhost
