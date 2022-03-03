@@ -54,3 +54,34 @@ This would create the repo in DockerHub, and push the image in with tag latest, 
 - --from=app path of WORKDIR PATH:new image WORKDIR
 - use alpine or slim base image to reduce container size from `1.04GB` to around `200MB`
 - create a APP container image with npm install, and create another one where it pulls the app folder and exposes port, as well as the CMD line as our final compressed container.
+
+
+### Docker Compose
+```
+version: "2"
+services: 
+  mongo:
+    image: mongo
+    container_name: mongo
+ #   restart: always
+    volumes:
+      - ./mongod.conf:/etc/mongod.conf
+      - ./logs:/var/log/mongod/
+      - ./db:/var/lib/mongodb
+      #- ./mongod.service:/lib/systemd/system/mongod.service
+    ports:
+      - "27017:27017"
+
+  app:
+    container_name: app
+    restart: always
+    build: ../shahrukh-app
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    environment: 
+      - DB_HOST=mongodb://mongo:27017/posts
+    #command: node app/seeds/seed.js
+    #command: npm start
+```
