@@ -9,8 +9,7 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  clusterIP: 10.96.0.1
-  type: LoadBalancer
+  type: NodePort
 status:
   loadBalancer:
     ingress:
