@@ -35,7 +35,7 @@ metadata:
   name: my-service
 spec:
   selector:
-    app: node
+    app: nginx
   ports:
     - protocol: TCP
       port: 80
