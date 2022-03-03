@@ -1,0 +1,29 @@
+# deplyoment for nginx-image
+# create 3 pods
+# kubectl get name-service {deploy/deplyoment|service/svc|pods}
+# kubectl create -f file.yml
+# kubectl delete name-service deploy deploy-name
+
+apiVersion: apps/v1
+
+kind: Deplyoment  # {pod,service,replicaset,ASG}
+
+
+metadata:
+  name: node
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: 2shad/shadman_nginx
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
