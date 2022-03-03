@@ -5,8 +5,12 @@ metadata:
 spec:
   selector:
     app: node
-  type: NodePort
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
+status:
+  loadBalancer:
+    ingress:
+    - ip: 192.1.2.2
